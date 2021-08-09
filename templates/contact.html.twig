@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="bg-light mb-5 mt-5">
+        <div class="container pb-5 pt-5">
+            <div class="row pb-5 pt-5">
+                <div class="col-md-7">
+                    <h1 class="font-weight-bold display-4">Contact customer service.</h1>
+                    <h2>Call us from the SensioTV app</h2>
+                    <p>Contacting SensioTV is now easier than ever when you contact us from the SensioTV app on your Android or iOS phone or tablet! <br> Calling through the app is free, all you need is an internet or cellular connection.</p>
+                    <hr>
+                    <h2>Live chat</h2>
+                    <p>You will need an internet or mobile phone connection.</p>
+                    <button class="btn btn-outline-dark" type="submit">Start live chat</button>
+                    <hr>
+                    <h2>Contact us by email</h2>
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <form method="post" action="#">
+                                <div class="row">
+                                    <div class="col-12 mt-3 mb-2">
+                                        <label for="_email" class="sr-only">Email address</label>
+                                        <input type="email" id="_email" name="_email" class="form-control" placeholder="Email address" required autofocus>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="_subject" class="sr-only">Subject</label>
+                                        <input type="text" id="_subject" name="_subject" class="form-control" placeholder="Subject" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="_message" class="sr-only">Message</label>
+                                        <textarea class="form-control" id="_message" name="_message" rows="5" placeholder="Your message. How can we help you ?"></textarea>
+                                    </div>
+                                    <div class="col-12 mt-3 mb-3">
+                                        <button class="btn btn-outline-dark btn-block" type="submit">Send your email</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 offset-md-2 mt-4">
+                    <p><strong>Popular Questions</strong></p>
+                    <ul>
+                        <li><a href="#">How do I reset my password ?</a></li>
+                        <li><a href="#">How can I request a TV show or movie ?</a></li>
+                        <li><a href="#">How do I cancel my account ?</a></li>
+                        <li><a href="#">Why isn&#39;t SensioTV Working ?</a></li>
+                        <li><a href="#">What is SensioTV ?</a></li>
+                    </ul>
+                    <p><strong>Find a different answer</strong></p>
+                    <form>
+                        <div class="form-group">
+                            <label for="_search_help" class="sr-only">Search</label>
+                            <input type="text" class="form-control" id="_search_help" name="_search_help" placeholder="What do you need help with ?">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,221 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="central-section" class="bg-light p-5">
+        <div class="container jumbotron p-5 img-rounded">
+            <div class="row mb-5">
+                <div class="col-lg">
+                    <form method="GET" action="">
+                        <input style="width: 100%; height: 50px; font-size: 25px;" name="keyword" type="text" value="{{ keyword }}"/>
+                    </form>
+                    <h1 class="display-4 font-weight-bold">Searching movie "{{ keyword }}".</h1>
+                </div>
+            </div>
+            <div class="row mb-4 text-center text-md-left">
+                <div class="col-lg-3 pb-3">
+                    <p class="lead font-weight-bold">Top Rated Movies By Genre</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" title="Choose your movie by genre">Action</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Adventure</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Animation</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Biography</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Comedy</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Crime</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Drama</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Family</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Fantasy</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Film-Noir</a></li>
+                        <li><a href="#" title="Choose your movie by genre">History</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Horror</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Music</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Musical</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Mystery</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Romance</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Sci-Fi</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Sport</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Thriller</a></li>
+                        <li><a href="#" title="Choose your movie by genre">War</a></li>
+                        <li><a href="#" title="Choose your movie by genre">Western</a></li>
+                    </ul>
+                    <p class="lead font-weight-bold">Top Rated Movies By Year</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" title="Choose your movie by year">2020-2029</a></li>
+                        <li><a href="#" title="Choose your movie by year">2010-2019</a></li>
+                        <li><a href="#" title="Choose your movie by year">2000-2009</a></li>
+                        <li><a href="#" title="Choose your movie by year">1990-1999</a></li>
+                        <li><a href="#" title="Choose your movie by year">1980-1989</a></li>
+                        <li><a href="#" title="Choose your movie by year">1970-1979</a></li>
+                        <li><a href="#" title="Choose your movie by year">1960-1969</a></li>
+                        <li><a href="#" title="Choose your movie by year">1950-1959</a></li>
+                        <li><a href="#" title="Choose your movie by year">1940-1949</a></li>
+                        <li><a href="#" title="Choose your movie by year">1930-1939</a></li>
+                        <li><a href="#" title="Choose your movie by year">1920-1929</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 table-responsive img-rounded bg-light p-3">
+                    <table id="top-rated-movie-table" class="table table-hover table-striped tablesorter tablesorter-bootstrap">
+                        <thead>
+                        <tr>
+                            <th class="sr-only"></th>
+                            <th>Rank &amp; Title</th>
+                            <th>IMDb Rating</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Les évadés"></td>
+                            <td>1. <a href="/movie/1" title="Frank Darabont (dir.), Tim Robbins, Morgan Freeman">Les évadés </a><span class="text-muted">(1994)</span></td>
+                            <td><strong title="9,2 based on 2 166 947 user ratings"><i class="fas fa-star text-warning"></i> 9,2</strong></td>
+                            <td><span class="badge badge-dark">4,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR1,0,45,67_AL_.jpg" width="45" height="67" alt="Le parrain"></td>
+                            <td>2. <a href="/movie/1" title="Francis Ford Coppola (dir.), Marlon Brando, Al Pacino">Le parrain </a><span class="text-muted">(1972)</span></td>
+                            <td><strong title="9,1 based on 1 487 924 user ratings"><i class="fas fa-star text-warning"></i> 9,1</strong></td>
+                            <td><span class="badge badge-dark">4,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR1,0,45,67_AL_.jpg" width="45" height="67" alt="Le parrain, 2ème partie"></td>
+                            <td>3. <a href="/movie/1" title="Francis Ford Coppola (dir.), Al Pacino, Robert De Niro">Le parrain, 2ème partie </a><span class="text-muted">(1974)</span></td>
+                            <td><strong title="9,0 based on 1 036 324 user ratings"><i class="fas fa-star text-warning"></i> 9,0</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="The Dark Knight: Le chevalier noir"></td>
+                            <td>4. <a href="/movie/1" title="Christopher Nolan (dir.), Christian Bale, Heath Ledger">The Dark Knight: Le chevalier noir </a><span class="text-muted">(2008)</span></td>
+                            <td><strong title="9,0 based on 2 141 865 user ratings"><i class="fas fa-star text-warning"></i> 9,0</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Douze hommes en colère"></td>
+                            <td>5. <a href="/movie/1" title="Sidney Lumet (dir.), Henry Fonda, Lee J. Cobb">Douze hommes en colère </a><span class="text-muted">(1957)</span></td>
+                            <td><strong title="8,9 based on 620 506 user ratings"><i class="fas fa-star text-warning"></i> 8,9</strong></td>
+                            <td><span class="badge badge-dark">2,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="La liste de Schindler"></td>
+                            <td>6. <a href="/movie/1" title="Steven Spielberg (dir.), Liam Neeson, Ralph Fiennes">La liste de Schindler </a><span class="text-muted">(1993)</span></td>
+                            <td><strong title="8,9 based on 1 124 467 user ratings"><i class="fas fa-star text-warning"></i> 8,9</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Le seigneur des anneaux: Le retour du roi"></td>
+                            <td>7. <a href="/movie/1" title="Peter Jackson (dir.), Elijah Wood, Viggo Mortensen">Le seigneur des anneaux: Le retour du roi </a><span class="text-muted">(2003)</span></td>
+                            <td><strong title="8,9 based on 1 538 503 user ratings"><i class="fas fa-star text-warning"></i> 8,9</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Pulp Fiction"></td>
+                            <td>8. <a href="/movie/1" title="Quentin Tarantino (dir.), John Travolta, Uma Thurman">Pulp Fiction </a><span class="text-muted">(1994)</span></td>
+                            <td><strong title="8,9 based on 1 701 385 user ratings"><i class="fas fa-star text-warning"></i> 8,9</strong></td>
+                            <td><span class="badge badge-dark">8,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Le bon, la brute et le truand"></td>
+                            <td>9. <a href="/movie/1" title="Sergio Leone (dir.), Clint Eastwood, Eli Wallach">Le bon, la brute et le truand </a><span class="text-muted">(1966)</span></td>
+                            <td><strong title="8,8 based on 643 208 user ratings"><i class="fas fa-star text-warning"></i> 8,8</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Fight Club"></td>
+                            <td>10. <a href="/movie/1" title="David Fincher (dir.), Brad Pitt, Edward Norton">Fight Club </a><span class="text-muted">(1999)</span></td>
+                            <td><strong title="8,8 based on 1 731 258 user ratings"><i class="fas fa-star text-warning"></i> 8,8</strong></td>
+                            <td><span class="badge badge-dark">3,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Le seigneur des anneaux: La communauté de l'anneau"></td>
+                            <td>11. <a href="/movie/1" title="Peter Jackson (dir.), Elijah Wood, Ian McKellen">Le seigneur des anneaux: La communauté de l'anneau </a><span class="text-muted">(2001)</span></td>
+                            <td><strong title="8,8 based on 1 553 692 user ratings"><i class="fas fa-star text-warning"></i> 8,8</strong></td>
+                            <td><span class="badge badge-dark">9,71 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Forrest Gump"></td>
+                            <td>12. <a href="/movie/1" title="Robert Zemeckis (dir.), Tom Hanks, Robin Wright">Forrest Gump </a><span class="text-muted">(1994)</span></td>
+                            <td><strong title="8,8 based on 1 668 916 user ratings"><i class="fas fa-star text-warning"></i> 8,8</strong></td>
+                            <td><span class="badge badge-dark">7,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Inception"></td>
+                            <td>13. <a href="/movie/1" title="Christopher Nolan (dir.), Leonardo DiCaprio, Joseph Gordon-Levitt">Inception </a><span class="text-muted">(2010)</span></td>
+                            <td><strong title="8,7 based on 1 899 458 user ratings"><i class="fas fa-star text-warning"></i> 8,7</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="L'empire contre-attaque"></td>
+                            <td>14. <a href="/movie/1" title="Irvin Kershner (dir.), Mark Hamill, Harrison Ford">L'empire contre-attaque </a><span class="text-muted">(1980)</span></td>
+                            <td><strong title="8,7 based on 1 082 944 user ratings"><i class="fas fa-star text-warning"></i> 8,7</strong></td>
+                            <td><span class="badge badge-dark">6,60 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNGE5MzIyNTAtNWFlMC00NDA2LWJiMjItMjc4Yjg1OWM5NzhhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Le seigneur des anneaux: Les deux tours"></td>
+                            <td>15. <a href="/movie/1" title="Peter Jackson (dir.), Elijah Wood, Ian McKellen">Le seigneur des anneaux: Les deux tours </a><span class="text-muted">(2002)</span></td>
+                            <td><strong title="8,7 based on 1 391 591 user ratings"><i class="fas fa-star text-warning"></i> 8,7</strong></td>
+                            <td><span class="badge badge-dark">4,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Matrix"></td>
+                            <td>16. <a href="/movie/1" title="Lana Wachowski (dir.), Keanu Reeves, Laurence Fishburne">Matrix </a><span class="text-muted">(1999)</span></td>
+                            <td><strong title="8,6 based on 1 559 990 user ratings"><i class="fas fa-star text-warning"></i> 8,6</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Les affranchis"></td>
+                            <td>17. <a href="/movie/1" title="Martin Scorsese (dir.), Robert De Niro, Ray Liotta">Les affranchis </a><span class="text-muted">(1990)</span></td>
+                            <td><strong title="8,6 based on 939 451 user ratings"><i class="fas fa-star text-warning"></i> 8,6</strong></td>
+                            <td><span class="badge badge-dark">2,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Vol au-dessus d'un nid de coucou"></td>
+                            <td>18. <a href="/movie/1" title="Milos Forman (dir.), Jack Nicholson, Louise Fletcher">Vol au-dessus d'un nid de coucou </a><span class="text-muted">(1975)</span></td>
+                            <td><strong title="8,6 based on 855 568 user ratings"><i class="fas fa-star text-warning"></i> 8,6</strong></td>
+                            <td><span class="badge badge-dark">10,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY67_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Joker"></td>
+                            <td>19. <a href="/movie/1" title="Todd Phillips (dir.), Joaquin Phoenix, Robert De Niro">Joker </a><span class="text-muted">(2019)</span></td>
+                            <td><strong title="8,6 based on 514 451 user ratings"><i class="fas fa-star text-warning"></i> 8,6</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="https://m.media-amazon.com/images/M/MV5BODdlYjU1Y2MtMWUxMy00YjJjLTgyMWItNzgzZmZkNTYxNWFkXkEyXkFqcGdeQXVyMTAwMjU1MzA2._V1_UX45_CR0,0,45,67_AL_.jpg" width="45" height="67" alt="Les sept samouraïs"></td>
+                            <td>20. <a href="/movie/1" title="Akira Kurosawa (dir.), Toshirô Mifune, Takashi Shimura">Les sept samouraïs </a><span class="text-muted">(1954)</span></td>
+                            <td><strong title="8,6 based on 293 291 user ratings"><i class="fas fa-star text-warning"></i> 8,6</strong></td>
+                            <td><span class="badge badge-dark">5,99 €</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <nav class="m-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
