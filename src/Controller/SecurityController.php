@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,6 +22,10 @@ class SecurityController extends AbstractController
      */
     public function register(): Response
     {
-        return $this->render('security/register.html.twig');
+        $form = $this->createForm(RegisterType::class);
+
+        return $this->render('security/register.html.twig', [
+            'register_form' => $form->createView()
+        ]);
     }
 }

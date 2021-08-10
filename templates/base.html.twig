@@ -29,22 +29,7 @@
         <button class="navbar-toggler ml-5" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <ul class="navbar-nav mx-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/" title="Back to the homepage">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/movie/search" title="Search">Search Movie</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact" title="You need some help ? Contact us !">Contact us</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav text-center">
-            <li class="nav-item active"><a class="nav-link" href="/register" title="Register or log in"><i class="fas fa-shopping-bag"></i></a></li>
-            <li class="nav-item active"><a class="nav-link" href="/login" title="Register or log in"><i class="fas fa-user"></i></a></li>
-        </ul>
-        </div>
+        {{ include('_menu.html.twig') }}
     </nav>
 </header>
 
