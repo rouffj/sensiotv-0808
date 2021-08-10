@@ -5,7 +5,7 @@
         <div class="container jumbotron p-5 img-rounded">
             <div class="row mb-5">
                 <div class="col-lg-10">
-                    <h1 class="display-4 font-weight-bold">Avengers: Endgame (2019).</h1>
+                    <h1 class="display-4 font-weight-bold">{{ movie.title }} (2019).</h1>
                     <p class="text-success font-weight-bold">USA | PG-13 | 181 min | Action, Adventure, Drama, Sci-Fi | 26 Apr 2019</p>
                 </div>
                 <div class="col-lg-2 my-auto">
@@ -18,7 +18,7 @@
                     <div class="row text-center">
                         <div class="col-lg-12 pl-4 pr-4">
                             <a href="/trailer-player.html" title="See Avengers Endgame trailer" class="album-link">
-                                <img class="img-rounded img-fluid" src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg" alt="Empty Cart Logo">
+                                <img class="img-rounded img-fluid" src="{{ movie.poster }}" alt="Empty Cart Logo">
                             </a>
                         </div>
                         <div class="col">
@@ -45,7 +45,7 @@
                         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                             <div class="row pt-4 text-muted">
                                 <div class="col">
-                                    <p>After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.</p>
+                                    <p>{{ movie.plot }}</p>
                                 </div>
                             </div>
                             <div class="row pt-2">

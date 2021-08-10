@@ -1,0 +1,50 @@
+{#
+
+{% macro render_review(review) %}
+    <div class="row p-sm-5">
+        <div class="col-md-2">
+            <p class="p-1 m-0"><span class="font-weight-bold">{{ review.user.firstName }} {{ review.user.lastName }} </span></p>
+        </div>
+        <div class="col-md-10">
+            <div class="text-warning font-weight-bold">
+                {% for star in range(1, review.rating) %}<i class="fas fa-star"></i>{% endfor %}
+                {{ review.rating }}
+            </div>
+            <p>{{ review.body }}</p>
+            <p>
+                {% if is_granted('REVIEW_EDIT', review)  %}
+                    <a href="#">Edit</a>
+                {% endif %}
+                {% if is_granted('REVIEW_DELETE', review)  %}
+                    | <a href="#">Delete</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro login_section() %}
+    {% if app.user %}
+        <span style="color: #fff">Hi {{ app.user.firstName }} | <a href="{{ logout_path() }}">Logout</a>
+            {% if app.user.lastLoginAt() is defined %} | last login: {{ app.user.lastLoginAt()|date }} {% endif %}
+        </span>
+    {% else %}
+        <li class="nav-item active"><a class="nav-link" href="/user/cart" title="Register or log in"><i class="fas fa-shopping-bag"></i></a></li>
+        <li class="nav-item active"><a class="nav-link" href="/login" title="Register or log in"><i class="fas fa-user"></i></a></li>
+    {% endif %}
+{% endmacro %}
+#}
+
+{% macro render_movie(movie) %}
+    <tr>
+        <td><img src="{{ movie.Poster }}" width="45" height="67" alt="{{ movie.Title }}"></td>
+        <td><a href="/movie/{{ movie.imdbID }}" title="{{ movie.Title }}">{{ movie.Title }} </a><span class="text-muted">({{ movie.Year }})</span></td>
+        <td><a href="/movie/{{ movie.imdbID }}/import">Import</a></td>
+    </tr>
+{% endmacro %}
+
+{% macro display_flash_messages(messageType) %}
+    {% for message in app.flashes(messageType) %}
+        <p style="margin: 70px 10px 10px;" class="alert alert-{{ messageType }}">{{ message }}</p>
+    {% endfor %}
+{% endmacro %}

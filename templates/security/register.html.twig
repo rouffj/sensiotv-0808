@@ -10,7 +10,7 @@
                     {#
                     {% form_theme register_form 'bootstrap_4_layout.html.twig' %}
                     #}
-                    {{ form(register_form) }}
+                    {{ form(register_form, {attr: {'novalidate': ''}}) }}
                     <div class="mt-4">
                         <p>
                             <a href="/password-recovering.html" title="Get a new password sent by email">Forgotten your password ? <i class="far fa-arrow-alt-circle-right"></i></a>

@@ -1,3 +1,4 @@
+{% import 'macros.html.twig' as macros %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +35,8 @@
 </header>
 
 <main id="main">
+    {{ macros.display_flash_messages('success') }}
+
     {% block body %}
         THIS IS THE PARENT BODY
     {% endblock %}
