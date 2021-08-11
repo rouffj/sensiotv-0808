@@ -97,4 +97,19 @@ class MovieController extends AbstractController
         ]);
         //return new Response('<h1>page for movie ' . $id . '</h1>');
     }
+
+    /**
+     * @Route("/movie/latest", name="movie_latest")
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function latest(MovieRepository $movieRepository): Response
+    {
+        $movies = $movieRepository->findAll();
+
+        return $this->render('movie/latest.html.twig', [
+            'movies' => $movies
+        ]);
+    }
 }

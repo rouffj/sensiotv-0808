@@ -37,7 +37,7 @@
 {% macro render_movie(movie) %}
     <tr>
         <td><img src="{{ movie.Poster }}" width="45" height="67" alt="{{ movie.Title }}"></td>
-        <td><a href="/movie/{{ movie.imdbID }}" title="{{ movie.Title }}">{{ movie.Title }} </a><span class="text-muted">({{ movie.Year }})</span></td>
+        <td>{{ movie.Title }} <span class="text-muted">({{ movie.Year }})</td>
         <td><a href="/movie/{{ movie.imdbID }}/import" title="Import movie data from IMDB into database"><i class="far fa-arrow-alt-circle-down"></i></a></td>
     </tr>
 {% endmacro %}
