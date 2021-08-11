@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Entity\Review;
+use App\Form\ReviewType;
 use App\Omdb\OmdbClient;
 use App\Repository\MovieRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,14 +64,36 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @Route("/movie/{id}", name="movie_show", requirements={"id": "\d+"}, defaults={"id": 567}, methods={"GET"})
+     * @Route("/movie/{id}", name="movie_show", requirements={"id": "\d+"}, defaults={"id": 567}, methods={"GET", "POST"})
      */
-    public function showMovie($id, MovieRepository $movieRepository): Response
+    public function showMovie($id,
+                              EntityManagerInterface $entityManager,
+                              MovieRepository $movieRepository,
+                              UserRepository $userRepository,
+                              Request $request): Response
     {
         $movie = $movieRepository->findOneBy(['id' => $id]);
 
+        $form = $this->createForm(ReviewType::class);
+
+        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
+            $reviewInfo = $form->getData();
+            $user = $userRepository->findOneBy(['email' => $reviewInfo['email']]);
+            $review = new Review();
+            $review
+                ->setBody($reviewInfo['body'])
+                ->setRating($reviewInfo['rating'])
+                ->setMovie($movie)
+                ->setUser($user)
+            ;
+
+            $entityManager->persist($review);
+            $entityManager->flush();
+        }
+
         return $this->render('movie/show.html.twig', [
-            'movie' => $movie
+            'movie' => $movie,
+            'review_form' => $form->createView(),
         ]);
         //return new Response('<h1>page for movie ' . $id . '</h1>');
     }

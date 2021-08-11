@@ -1,4 +1,3 @@
-{#
 
 {% macro render_review(review) %}
     <div class="row p-sm-5">
@@ -33,13 +32,13 @@
         <li class="nav-item active"><a class="nav-link" href="/login" title="Register or log in"><i class="fas fa-user"></i></a></li>
     {% endif %}
 {% endmacro %}
-#}
+
 
 {% macro render_movie(movie) %}
     <tr>
         <td><img src="{{ movie.Poster }}" width="45" height="67" alt="{{ movie.Title }}"></td>
         <td><a href="/movie/{{ movie.imdbID }}" title="{{ movie.Title }}">{{ movie.Title }} </a><span class="text-muted">({{ movie.Year }})</span></td>
-        <td><a href="/movie/{{ movie.imdbID }}/import">Import</a></td>
+        <td><a href="/movie/{{ movie.imdbID }}/import" title="Import movie data from IMDB into database"><i class="far fa-arrow-alt-circle-down"></i></a></td>
     </tr>
 {% endmacro %}
 
