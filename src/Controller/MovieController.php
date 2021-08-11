@@ -10,24 +10,33 @@ use App\Repository\MovieRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class MovieController extends AbstractController
 {
+
+    /**
+     * @var OmdbClient
+     */
+    private $omdbClient;
+
+    public function __construct(OmdbClient $omdbClient)
+    {
+        $this->omdbClient = $omdbClient;
+    }
+
     /**
      * @Route("/movie/{imdbId}/import", name="movie_import")
      *
      * @param Request $request
      * @return Response
      */
-    public function import($imdbId, EntityManagerInterface $entityManager, HttpClientInterface $httpClient): Response
+    public function import($imdbId, EntityManagerInterface $entityManager): Response
     {
-        $omdbClient = new OmdbClient($httpClient, '28c5b7b1', 'https://www.omdbapi.com/');
-
-        $row = $omdbClient->requestById($imdbId);
+        $row = $this->omdbClient->requestById($imdbId);
         $movie = new Movie();
         $movie
             ->setImdbId($row['imdbID'])
@@ -49,12 +58,10 @@ class MovieController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function search(Request $request, HttpClientInterface $httpClient): Response
+    public function search(Request $request): Response
     {
-        $omdbClient = new OmdbClient($httpClient, '28c5b7b1', 'https://www.omdbapi.com/');
-
         $keyword = $request->query->get('keyword', 'Harry Potter');
-        $rows = $omdbClient->requestBySearch($keyword)['Search'];
+        $rows = $this->omdbClient->requestBySearch($keyword)['Search'];
         dump($rows);
 
         return $this->render('movie/search.html.twig', [

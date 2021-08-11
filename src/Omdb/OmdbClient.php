@@ -14,7 +14,7 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
- * A client class consuming http://www.omdbapi.com/ API. Several methods are availables: requestById,
+ * BBA client class consuming http://www.omdbapi.com/ API. Several methods are availables: requestById,
  * requestByTitle, requestBySearch.
  *
  * @method requestById(string $imdbId, array $parameters = null)
