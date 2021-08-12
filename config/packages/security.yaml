@@ -32,8 +32,14 @@ security:
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 
+    role_hierarchy:
+        ROLE_USER: ~
+        ROLE_MODERATOR: ROLE_USER
+        ROLE_ADMIN:
+            - ROLE_MODERATOR
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # Allow to have access to admin area from office IP
+        - { path: ^/admin, allow_if: "request.getClientIp() in ['127.0.0.1']"}
+        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_SUPERADMIN] }

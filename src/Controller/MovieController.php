@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class MovieController extends AbstractController
 {
@@ -36,6 +37,10 @@ class MovieController extends AbstractController
      */
     public function import($imdbId, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            throw new AccessDeniedException();
+        }
+
         $row = $this->omdbClient->requestById($imdbId);
         $movie = new Movie();
         $movie

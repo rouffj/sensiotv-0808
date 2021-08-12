@@ -23,4 +23,12 @@ class DefaultController extends AbstractController
     {
         return $this->render('contact.html.twig');
     }
+
+    /**
+     * @Route("/admin/edit_users")
+     */
+    public function adminEditUsers(): Response
+    {
+        return new Response('Hello from /admin/edit_users');
+    }
 }
