@@ -15,11 +15,21 @@ class ReviewType extends AbstractType
         $builder
             ->add('rating', Type\NumberType::class)
             ->add('body', Type\TextareaType::class)
-            ->add('email', Type\EmailType::class)
+            //->add('email', Type\EmailType::class)
             ->add('submit', Type\SubmitType::class, [
                 'label' => 'Submit my review'
             ])
         ;
+
+/*
+        if (!$this->authorizationChecker->isGranted('ROLE_USER')) {
+            $builder->add('email', Type\EmailType::class);
+        } else {
+            $builder->add('email', Type\EmailType::class, [
+                'data' => $tokenStorage->getToken()->getUser()
+            ]);
+        }
+*/
     }
 
     public function configureOptions(OptionsResolver $resolver)
