@@ -1,3 +1,4 @@
+{% import 'macros.html.twig' as macros %}
 <ul class="navbar-nav mx-auto text-center">
     <li class="nav-item">
         <a class="nav-link" href="/" title="Back to the homepage">Home <span class="sr-only">(current)</span></a>
@@ -13,7 +14,6 @@
     </li>
 </ul>
 <ul class="navbar-nav text-center">
-    <li class="nav-item active"><a class="nav-link" href="/register" title="Register or log in"><i class="fas fa-shopping-bag"></i></a></li>
-    <li class="nav-item active"><a class="nav-link" href="/login" title="Register or log in"><i class="fas fa-user"></i></a></li>
+    {{ macros.login_section() }}
 </ul>
 

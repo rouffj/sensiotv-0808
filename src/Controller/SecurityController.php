@@ -8,10 +8,28 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SecurityController extends AbstractController
 {
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout(): Response
+    {
+        return new Response('logout response');
+    }
+
+    /**
+     * @Route("/login_check", name="login_check")
+     */
+    public function loginCheck(): Response
+    {
+        return new Response('login Check response');
+    }
+
     /**
      * @Route("/login", name="login")
      */
@@ -23,7 +41,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function register(Request $request, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $form = $this->createForm(RegisterType::class);
 
@@ -33,6 +51,8 @@ class SecurityController extends AbstractController
             // The form has no error and the user has clicked on submit button.
             /** @var User $user */
             $user = $form->getData();
+            $encodedPassword = $passwordHasher->hashPassword($user, $user->getPassword());
+            $user->setPassword($encodedPassword);
 
             $entityManager->persist($user);
             $entityManager->flush();

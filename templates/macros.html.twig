@@ -28,7 +28,7 @@
             {% if app.user.lastLoginAt() is defined %} | last login: {{ app.user.lastLoginAt()|date }} {% endif %}
         </span>
     {% else %}
-        <li class="nav-item active"><a class="nav-link" href="/user/cart" title="Register or log in"><i class="fas fa-shopping-bag"></i></a></li>
+        <li class="nav-item active"><a class="nav-link" href="/register" title="Register or log in"><i class="fas fa-shopping-bag"></i></a></li>
         <li class="nav-item active"><a class="nav-link" href="/login" title="Register or log in"><i class="fas fa-user"></i></a></li>
     {% endif %}
 {% endmacro %}
