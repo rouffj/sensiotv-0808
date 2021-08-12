@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Event\UserRegisteredEvent;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class SecurityController extends AbstractController
 {
@@ -41,7 +43,12 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    public function register(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        UserPasswordHasherInterface $passwordHasher,
+        EventDispatcherInterface $eventDispatcher
+    ): Response
     {
         $form = $this->createForm(RegisterType::class);
 
@@ -58,6 +65,9 @@ class SecurityController extends AbstractController
             $entityManager->flush();
 
             dump($user);
+
+            $event = new UserRegisteredEvent($user);
+            $eventDispatcher->dispatch($event, 'user_registered');
             $this->addFlash('success', 'Your account has been successfully created');
 
             return $this->redirectToRoute('home');
